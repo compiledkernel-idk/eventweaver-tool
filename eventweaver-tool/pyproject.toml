@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "eventweaver"
+version = "0.1.0"
+description = "Fuse heterogeneous log streams into an analyzable timeline with heuristics and an embedded expression DSL"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "Kernel User" }
+]
+dependencies = []
+
+[project.scripts]
+weave = "eventweaver.cli:main"
+
+[project.optional-dependencies]
+test = [
+  "pytest"
+]
+
+[tool.eventweaver]
+default_config = "examples/configs/synthetic.toml"

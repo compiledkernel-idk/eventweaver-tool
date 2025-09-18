@@ -1,0 +1,41 @@
+title = "Synthetic Incident"
+
+[defaults]
+severity_field = "level"
+message_field = "message"
+timestamp_format = "%Y-%m-%dT%H:%M:%S.%fZ"
+severity_map = { DEBUG = 0, INFO = 1, WARN = 2, ERROR = 3, CRITICAL = 4 }
+skew_ms = 250
+
+[[sources]]
+name = "api-gateway"
+path = "../logs/service_a.jsonl"
+kind = "jsonl"
+timestamp_field = "ts"
+metadata_fields = ["user", "route"]
+skew_ms = 300
+
+[[sources]]
+name = "auth-service"
+path = "../logs/service_b.log"
+kind = "regex"
+regex = "(?P<timestamp>\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}) \\[(?P<severity>\\w+)\\] (?P<message>.+?)(?: user=(?P<user>\\w+))?"
+timestamp_format = "%Y-%m-%d %H:%M:%S"
+metadata_fields = ["user"]
+
+[[sources]]
+name = "billing-job"
+path = "../logs/service_c.csv"
+kind = "csv"
+timestamp_field = "time"
+timestamp_format = "%Y-%m-%dT%H:%M:%S"
+severity_field = "severity"
+message_field = "detail"
+metadata_fields = ["job_id"]
+csv_has_header = true
+severity_map = { ok = 1, warn = 2, fail = 3 }
+
+[heuristics]
+gap = { threshold_ms = 45000 }
+burst = { window_ms = 10000, threshold = 3 }
+severity_regression = { horizon = 4, delta = 0.5 }

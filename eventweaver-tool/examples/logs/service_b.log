@@ -1,0 +1,4 @@
+2024-03-01 12:00:01 [INFO] issued challenge user=amy
+2024-03-01 12:00:05 [WARN] password mismatch user=amy
+2024-03-01 12:00:07 [ERROR] lockout triggered user=amy
+2024-03-01 12:01:40 [ERROR] token refresh failed user=bot

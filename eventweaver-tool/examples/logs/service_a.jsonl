@@ -1,0 +1,5 @@
+{"ts": "2024-03-01T12:00:00.200Z", "level": "INFO", "message": "GET /login start", "user": "amy", "route": "/login"}
+{"ts": "2024-03-01T12:00:02.500Z", "level": "WARN", "message": "POST /login responded 401", "user": "amy", "route": "/login"}
+{"ts": "2024-03-01T12:00:15.000Z", "level": "ERROR", "message": "POST /login responded 500", "user": "amy", "route": "/login"}
+{"ts": "2024-03-01T12:01:30.000Z", "level": "INFO", "message": "GET /billing start", "user": "bot", "route": "/billing"}
+{"ts": "2024-03-01T12:01:33.100Z", "level": "ERROR", "message": "GET /billing crashed", "user": "bot", "route": "/billing"}

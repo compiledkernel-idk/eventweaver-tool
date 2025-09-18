@@ -1,0 +1,5 @@
+time,severity,detail,job_id
+2024-03-01T11:59:58,ok,Started nightly aggregation,agg-42
+2024-03-01T12:00:06,warn,External API slowdown detected,agg-42
+2024-03-01T12:00:08,fail,Aggregation aborted,agg-42
+2024-03-01T12:02:15,warn,Rerun scheduled,agg-43
